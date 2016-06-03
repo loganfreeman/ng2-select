@@ -26,6 +26,8 @@ const devtool = process.env.NODE_ENV === 'test' ? 'inline-source-map' : 'source-
 const dest = 'demo-build';
 const absDest = root(dest);
 
+const defaultPort = 8000;
+
 const config = {
   // isProduction ? 'source-map' : 'evale',
   devtool,
@@ -74,7 +76,8 @@ const config = {
     contentBase: dest,
     //publicPath: dest,
     outputPath: dest,
-    watchOptions: {aggregateTimeout: 300, poll: 1000}
+    watchOptions: {aggregateTimeout: 300, poll: 1000},
+    port: process.env.PORT || defaultPort
   },
 
   markdownLoader: {
